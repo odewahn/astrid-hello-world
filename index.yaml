@@ -1,0 +1,18 @@
+model: openai/gpt-4o-mini
+title: GCP Lessons
+
+contents:
+  - title: All about dates
+    prompt: lesson1.md
+  - title: Listing files in a directory
+    prompt: lesson2.md
+
+mcpServers:
+
+  date:
+    transport: stdio
+    command: date
+
+  ls:
+    transport: stdio
+    command: ls
