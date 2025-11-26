@@ -3,16 +3,20 @@ title: GCP Lessons
 
 contents:
   - title: All about dates
-    prompt: lesson1.md
+    filename: lesson1.md
   - title: Listing files in a directory
-    prompt: lesson2.md
+    filename: lesson2.md
 
 mcpServers:
 
-  date:
-    transport: stdio
-    command: date
+  shell_server:
+      transport: stdio
+      command: bash
+      args: ["-c", "uvx mcp-shell-server  2>/dev/null"]
+      env:
+        ALLOW_COMMANDS: date, ls, sed, awk, grep
 
-  ls:
-    transport: stdio
-    command: ls
+#  file_manager:
+#      transport: stdio
+#      command: bash
+#      args: ["-c", "npx @modelcontextprotocol/server-filesystem $USER_HOME 2>/dev/null"]
