@@ -7,16 +7,21 @@ contents:
   - title: Listing files in a directory
     filename: lesson2.md
 
+# These variables will get patched into the MCP config from the shell
+# since FastMCP does not support this automatically
+inherited_shell_variables:
+  - USER_HOME
+
 mcpServers:
 
   shell_server:
       transport: stdio
       command: bash
-      args: ["-c", "uvx mcp-shell-server  2>/dev/null"]
+      args: ["-c", "uvx mcp-shell-server 2>/dev/null"]
       env:
         ALLOW_COMMANDS: date, ls, sed, awk, grep
 
-#  file_manager:
-#      transport: stdio
-#      command: bash
-#      args: ["-c", "npx @modelcontextprotocol/server-filesystem $USER_HOME 2>/dev/null"]
+  file_manager:
+      transport: stdio
+      command: bash
+      args: ["-c", "npx @modelcontextprotocol/server-filesystem $USER_HOME  2>/dev/null"]
