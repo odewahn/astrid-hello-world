@@ -4,7 +4,7 @@ title: GCP Lessons
 
 contents:
   - title: Freeform exploration
-    prompt: freeform.md
+    filename: freeform.md
   - title: PubSub
     filename: lesson1.md
   - title: Listing files in a directory
