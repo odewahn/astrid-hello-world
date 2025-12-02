@@ -1,9 +1,11 @@
 #model: openai/gpt-4o-mini
-model: anthropic/claude-sonnet-4-5-20250929
+model: openai/gpt-4o-mini
 title: GCP Lessons
 
 contents:
-  - title: All about dates
+  - title: Freeform exploration
+    prompt: freeform.md
+  - title: PubSub
     filename: lesson1.md
   - title: Listing files in a directory
     filename: lesson2.md
@@ -15,14 +17,9 @@ inherited_shell_variables:
 
 mcpServers:
 
-  shell_server:
-      transport: stdio
-      command: bash
-      args: ["-c", "uvx mcp-shell-server 2>/dev/null"]
-      env:
-        ALLOW_COMMANDS: date, ls, sed, awk, grep
-
-  file_manager:
-      transport: stdio
-      command: bash
-      args: ["-c", "npx @modelcontextprotocol/server-filesystem $USER_HOME  2>/dev/null"]
+  shell_tool:
+    transport: stdio
+    command: bash 
+    args: ["-c", "uvx mcp-shell-server 2>/dev/null"]
+    env:
+      ALLOW_COMMANDS: gcloud, gsutil, bq, python, uv, git, curl, jq, zip, unzip, tar, make, terraform
